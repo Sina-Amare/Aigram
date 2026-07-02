@@ -1,4 +1,4 @@
-"""Main entry point for SakaiBot."""
+"""Main entry point for Aigram."""
 
 import asyncio
 import os
@@ -29,8 +29,8 @@ from .cli.handler import CLIHandler
 from .telegram.connection_health import ConnectionHealthMonitor
 
 
-class SakaiBot:
-    """Main SakaiBot application class."""
+class Aigram:
+    """Main Aigram application class."""
     
     def __init__(self, config: Config) -> None:
         self._config = config
@@ -163,7 +163,7 @@ class SakaiBot:
             self._logger.error(f"Error during graceful shutdown: {e}", exc_info=True)
     
     async def run(self) -> None:
-        """Run the SakaiBot application."""
+        """Run the Aigram application."""
         # Acquire instance lock (kills old instances if needed)
         if not self._instance_lock.acquire(force=True):
             self._logger.error("Failed to acquire instance lock")
@@ -171,8 +171,8 @@ class SakaiBot:
             return
         
         try:
-            self._logger.info("Starting SakaiBot")
-            print(f"Starting SakaiBot v{self._config.APP_VERSION if hasattr(self._config, 'APP_VERSION') else '2.0.0'}...")
+            self._logger.info("Starting Aigram")
+            print(f"Starting Aigram v{self._config.APP_VERSION if hasattr(self._config, 'APP_VERSION') else '2.0.0'}...")
             
             # Initialize Telegram client
             client = await self._client_manager.initialize()
@@ -247,8 +247,8 @@ class SakaiBot:
             # Release instance lock
             self._instance_lock.release()
             
-            self._logger.info("SakaiBot has been stopped")
-            print("SakaiBot has been stopped.")
+            self._logger.info("Aigram has been stopped")
+            print("Aigram has been stopped.")
 
 
 async def main() -> None:
@@ -257,8 +257,8 @@ async def main() -> None:
         # Setup logging based on environment
         if is_docker_environment():
             # Use structured JSON logging for Docker
-            log_level = os.environ.get('SAKAIBOT_LOG_LEVEL', 'INFO')
-            use_json = os.environ.get('SAKAIBOT_LOG_JSON', '1') == '1'
+            log_level = os.environ.get('AIGRAM_LOG_LEVEL', 'INFO')
+            use_json = os.environ.get('AIGRAM_LOG_JSON', '1') == '1'
             setup_production_logging(
                 log_dir="logs",
                 log_level=log_level,
@@ -282,8 +282,8 @@ async def main() -> None:
         config = load_config()
         logger.info("Configuration loaded successfully")
         
-        # Create and run SakaiBot
-        bot = SakaiBot(config)
+        # Create and run Aigram
+        bot = Aigram(config)
         await bot.run()
     
     except ConfigurationError as e:
@@ -301,8 +301,8 @@ if __name__ == '__main__':
     try:
         asyncio.run(main())
     except SystemExit:
-        print("SakaiBot exited.")
+        print("Aigram exited.")
     except KeyboardInterrupt:
-        print("\nSakaiBot stopped by user (Ctrl+C).")
+        print("\nAigram stopped by user (Ctrl+C).")
     finally:
-        print("SakaiBot finished execution.")
+        print("Aigram finished execution.")

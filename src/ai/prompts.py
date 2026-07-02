@@ -1,4 +1,4 @@
-"""Prompts for Aigram (SakaiBot).
+"""Prompts for Aigram.
 
 Single source of truth for every LLM prompt. Design goals:
 - ONE compact output/tone spec per language, applied once (no 150-line stacks).

@@ -6,7 +6,7 @@ pagination, Media tab, every dashboard, and the dark/light theme toggle. Also
 captures screenshots of both themes for visual QA.
 
 Setup:  pip install playwright && playwright install chromium
-Run:     SAKAIBOT_RUN_LIVE_TESTS=1 pytest tests/live/test_panel_browser.py -v
+Run:     AIGRAM_RUN_LIVE_TESTS=1 pytest tests/live/test_panel_browser.py -v
 """
 
 from pathlib import Path

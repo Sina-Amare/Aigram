@@ -1,6 +1,6 @@
 """
 Integration Test: Gemini Pro->Flash Fallback with Thinking Mode
-Tests the actual SakaiBot code path to ensure thinking mode works when Pro is exhausted.
+Tests the actual Aigram code path to ensure thinking mode works when Pro is exhausted.
 """
 import asyncio
 import os
@@ -19,8 +19,8 @@ pytestmark = [
     pytest.mark.live,
     pytest.mark.asyncio,
     pytest.mark.skipif(
-        os.getenv("SAKAIBOT_RUN_LIVE_TESTS") != "1",
-        reason="Live Gemini integration tests require SAKAIBOT_RUN_LIVE_TESTS=1 and API credentials",
+        os.getenv("AIGRAM_RUN_LIVE_TESTS") != "1",
+        reason="Live Gemini integration tests require AIGRAM_RUN_LIVE_TESTS=1 and API credentials",
     ),
 ]
 
@@ -153,7 +153,7 @@ async def test_direct_thinking():
 
 if __name__ == "__main__":
     print("\n" + "#"*70)
-    print("#  SakaiBot Thinking Mode Integration Test")
+    print("#  Aigram Thinking Mode Integration Test")
     print("#"*70)
     
     # Run tests

@@ -1,0 +1,25 @@
+# Normalize all text files to LF in the repository and on checkout.
+# LF everywhere keeps the Docker shell scripts (entrypoint/healthcheck/deploy)
+# executable inside the Linux container — CRLF breaks the `#!/bin/bash` shebang.
+* text=auto eol=lf
+
+# Shell scripts must always be LF regardless of detection.
+*.sh    text eol=lf
+Dockerfile text eol=lf
+
+# Binary assets — never touch their bytes.
+*.png   binary
+*.woff2 binary
+*.ico   binary
+*.woff  binary
+*.ttf   binary
+*.otf   binary
+*.tgs   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.mp3   binary
+*.ogg   binary
+*.gz    binary
+*.gpg   binary

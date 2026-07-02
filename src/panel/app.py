@@ -1,4 +1,4 @@
-"""FastAPI app factory for the SakaiBot control panel.
+"""FastAPI app factory for the Aigram control panel.
 
 Thin layer: each route delegates to a service method and returns its dict.
 No business logic here. Static SPA is served unauthenticated (it's just the
@@ -39,7 +39,7 @@ def _attachment_disposition(name: str) -> str:
 
 
 def create_app(state: Any) -> FastAPI:
-    app = FastAPI(title="SakaiBot Control Panel", docs_url=None, redoc_url=None)
+    app = FastAPI(title="Aigram Control Panel", docs_url=None, redoc_url=None)
     app.state.panel = state
 
     # ---- error handlers (never leak internals) ----

@@ -29,7 +29,7 @@ async def _list_authorized():
         auth_pvs = settings.get('directly_authorized_pvs', [])
         
         if not auth_pvs:
-            display_info("No authorized users. Use 'sakaibot auth add' to authorize users.")
+            display_info("No authorized users. Use 'aigram auth add' to authorize users.")
             return
         
         # Get PV details from cache

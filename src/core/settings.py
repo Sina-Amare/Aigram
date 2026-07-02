@@ -1,4 +1,4 @@
-"""Settings management for SakaiBot."""
+"""Settings management for Aigram."""
 
 import json
 from pathlib import Path

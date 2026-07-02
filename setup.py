@@ -1,4 +1,4 @@
-"""Setup configuration for SakaiBot."""
+"""Setup configuration for Aigram."""
 
 from setuptools import setup, find_packages
 from pathlib import Path
@@ -8,16 +8,16 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="sakaibot",
+    name="aigram",
     version="2.0.0",
     author="Sina Amare",
     description="Advanced Telegram Userbot with AI Capabilities",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Sina-Amare/SakaiBot",
+    url="https://github.com/Sina-Amare/Aigram",
     project_urls={
-        "Bug Tracker": "https://github.com/Sina-Amare/SakaiBot/issues",
-        "Documentation": "https://github.com/Sina-Amare/SakaiBot/tree/main/docs",
+        "Bug Tracker": "https://github.com/Sina-Amare/Aigram/issues",
+        "Documentation": "https://github.com/Sina-Amare/Aigram/tree/main/docs",
     },
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -40,6 +40,9 @@ setup(
         "pydantic-settings>=2.0.0",
         "openai>=1.0.0",
         "google-genai>=0.8.0",
+        "google-generativeai>=0.8.0",
+        "httpx[socks]>=0.25.0",
+        "psutil>=5.9.0",
         "click>=8.1.0",
         "rich>=13.0.0",
         "tabulate>=0.9.0",
@@ -65,7 +68,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "sakaibot=src.cli.main:cli",
+            "aigram=src.cli.main:cli",
         ],
     },
     include_package_data=True,

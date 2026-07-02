@@ -41,7 +41,7 @@ class Config(BaseSettings):
     telegram_api_id: int = Field(..., description="Telegram API ID")
     telegram_api_hash: str = Field(..., description="Telegram API Hash")
     telegram_phone_number: str = Field(..., description="Telegram Phone Number")
-    telegram_session_name: str = Field(default="sakaibot_session", description="Telegram Session Name")
+    telegram_session_name: str = Field(default="aigram_session", description="Telegram Session Name")
     
     # LLM Provider Configuration
     llm_provider: str = Field(default="openrouter", description="LLM Provider (openrouter or gemini)")

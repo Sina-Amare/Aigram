@@ -1,4 +1,4 @@
-"""Interactive menu system for SakaiBot CLI."""
+"""Interactive menu system for Aigram CLI."""
 
 import asyncio
 from typing import Dict, Any, List
@@ -109,7 +109,7 @@ class InteractiveMenu:
         
     def display_main_menu(self):
         """Display the main menu options."""
-        self.display_header("SakaiBot Interactive Menu", "Navigate with numbers, 0 to go back")
+        self.display_header("Aigram Interactive Menu", "Navigate with numbers, 0 to go back")
         self.display_status_bar()
         
         console.print("[bold cyan]Main Menu:[/bold cyan]")
@@ -324,7 +324,7 @@ class InteractiveMenu:
         except Exception as e:
             console.print(f"[red]Warning: Could not save settings: {e}[/red]")
             
-        console.print("[cyan]Thank you for using SakaiBot![/cyan]")
+        console.print("[cyan]Thank you for using Aigram![/cyan]")
         self.running = False
         
     # Real menu action implementations using handlers
@@ -369,7 +369,7 @@ class InteractiveMenu:
             config = get_settings()
             
             # Create configuration table
-            table = Table(title="SakaiBot Configuration", show_header=True, header_style="bold cyan")
+            table = Table(title="Aigram Configuration", show_header=True, header_style="bold cyan")
             table.add_column("Category", style="cyan", width=20)
             table.add_column("Setting", style="green", width=25)
             table.add_column("Value", width=40)
@@ -415,7 +415,7 @@ class InteractiveMenu:
             # Show file locations
             console.print("\n[bold cyan]Configuration Files:[/bold cyan]")
             console.print(f"  • Main config: {Path('.env').absolute()}")
-            console.print(f"  • User settings: {Path('data/sakaibot_user_settings.json').absolute()}")
+            console.print(f"  • User settings: {Path('data/aigram_user_settings.json').absolute()}")
             console.print(f" • Session: {Path('data/' + config.telegram_session_name + '.session').absolute()}")
             
         except Exception as e:
@@ -484,7 +484,7 @@ class InteractiveMenu:
             import json
             
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            backup_filename = f"data/backup_sakaibot_settings_{timestamp}.json"
+            backup_filename = f"data/backup_aigram_settings_{timestamp}.json"
             backup_path = Path(backup_filename)
             
             settings = self.state.get_user_settings()
@@ -513,7 +513,7 @@ class InteractiveMenu:
             
             # List backup files
             data_dir = Path("data")
-            backup_files = list(data_dir.glob("backup_sakaibot_settings_*.json"))
+            backup_files = list(data_dir.glob("backup_aigram_settings_*.json"))
             
             if not backup_files:
                 console.print("[yellow]No backup files found in data/ directory[/yellow]")
@@ -560,7 +560,7 @@ class InteractiveMenu:
     async def run(self):
         """Main menu loop."""
         console.clear()
-        console.print("[bold green]Welcome to SakaiBot Interactive Menu![/bold green]")
+        console.print("[bold green]Welcome to Aigram Interactive Menu![/bold green]")
         console.print("[dim]Tip: Use Ctrl+C to go back, or select option 0[/dim]\n")
         
         while self.running:

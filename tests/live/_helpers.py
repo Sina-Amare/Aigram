@@ -2,10 +2,10 @@
 
 These start the REAL panel runtime: a real connected Telethon client + a real
 ``AIProcessor`` + a real uvicorn server on the SAME event loop (exactly like
-production), then exercise it over HTTP. Gated by ``SAKAIBOT_RUN_LIVE_TESTS=1``.
+production), then exercise it over HTTP. Gated by ``AIGRAM_RUN_LIVE_TESTS=1``.
 
 Ban-safety: tiny volume, throttled through the panel, and all chat-targeting
-tests use Saved Messages (``me``) or ``SAKAIBOT_TEST_CHAT`` — never a third
+tests use Saved Messages (``me``) or ``AIGRAM_TEST_CHAT`` — never a third
 party. The panel sends nothing.
 """
 
@@ -15,13 +15,13 @@ from pathlib import Path
 
 import pytest
 
-LIVE = os.getenv("SAKAIBOT_RUN_LIVE_TESTS") == "1"
+LIVE = os.getenv("AIGRAM_RUN_LIVE_TESTS") == "1"
 TEST_PORT = int(os.getenv("PANEL_TEST_PORT", "8791"))
-TEST_CHAT = os.getenv("SAKAIBOT_TEST_CHAT", "me")
+TEST_CHAT = os.getenv("AIGRAM_TEST_CHAT", "me")
 LIVE_TOKEN = "live-test-token"
 
 skip_unless_live = pytest.mark.skipif(
-    not LIVE, reason="Set SAKAIBOT_RUN_LIVE_TESTS=1 (real creds + session) to run."
+    not LIVE, reason="Set AIGRAM_RUN_LIVE_TESTS=1 (real creds + session) to run."
 )
 
 
@@ -53,7 +53,7 @@ async def live_panel():
         pytest.skip(f"Could not open Telegram session (is the bot running?): {exc}")
     if not await client.is_user_authorized():
         await client.disconnect()
-        pytest.skip("No authorized Telegram session; run `sakaibot panel` once to log in.")
+        pytest.skip("No authorized Telegram session; run `aigram panel` once to log in.")
 
     ai = AIProcessor(config)
     stt = SpeechToTextProcessor()

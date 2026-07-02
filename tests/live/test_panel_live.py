@@ -1,7 +1,7 @@
 """LIVE end-to-end panel tests: real Telegram reads + real LLM calls + the
 core 'never sends to chat' promise verified against the real account.
 
-Run locally:  SAKAIBOT_RUN_LIVE_TESTS=1 pytest tests/live/test_panel_live.py -v
+Run locally:  AIGRAM_RUN_LIVE_TESTS=1 pytest tests/live/test_panel_live.py -v
 """
 
 import httpx
@@ -95,7 +95,7 @@ async def test_live_tts_real():
         async with httpx.AsyncClient(base_url=base, timeout=180) as hc:
             r = await hc.post(
                 "/api/cmd/tts",
-                json={"text": "Hello from the SakaiBot panel live test."},
+                json={"text": "Hello from the Aigram panel live test."},
                 headers=auth_header(),
             )
             if r.status_code != 200:

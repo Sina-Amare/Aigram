@@ -36,9 +36,8 @@ def test_brand_is_aigram():
     html = _read("index.html")
     assert "Aigram" in html
     assert "<title>Aigram" in html
-    # No leftover product-name in the visible shell brand.
-    assert "SakaiBot Control Panel" not in html
-    assert "> SakaiBot<" not in html
+    # The visible shell brand is the "A" logo mark followed by the Aigram wordmark.
+    assert '<span class="brand-mark">A</span> Aigram' in html
 
 
 def test_mobile_shell_hooks_present():

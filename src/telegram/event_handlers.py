@@ -1,4 +1,4 @@
-"""Event handlers for Telegram messages in SakaiBot."""
+"""Event handlers for Telegram messages in Aigram."""
 
 import os
 from typing import Dict, Any, Optional, Tuple

@@ -5,7 +5,7 @@ from functools import wraps
 import asyncio
 
 from ..core.exceptions import (
-    SakaiBotError,
+    AigramError,
     ConfigurationError,
     TelegramError,
     AIProcessorError,
@@ -201,7 +201,7 @@ def handle_errors(
         async def wrapper(*args: Any, **kwargs: Any) -> T:
             try:
                 return await func(*args, **kwargs)
-            except SakaiBotError as e:
+            except AigramError as e:
                 if log_error:
                     ErrorHandler.log_error(e, context=func.__name__)
                 if reraise:

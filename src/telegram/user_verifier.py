@@ -1,4 +1,4 @@
-"""Telegram user verification module for SakaiBot."""
+"""Telegram user verification module for Aigram."""
 
 from typing import Optional, Dict, Any
 from telethon import TelegramClient

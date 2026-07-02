@@ -9,7 +9,7 @@ from typing import Optional, List, Dict, Any
 
 console = Console()
 
-# Global storage for shared client (set by SakaiBot.run())
+# Global storage for shared client (set by Aigram.run())
 _shared_client = None
 _shared_client_manager = None
 
@@ -17,7 +17,7 @@ _shared_client_manager = None
 def set_shared_client(client, client_manager):
     """Set the shared Telegram client for use by CLI commands.
     
-    This should be called by SakaiBot.run() after connecting to Telegram.
+    This should be called by Aigram.run() after connecting to Telegram.
     """
     global _shared_client, _shared_client_manager
     _shared_client = client
@@ -49,12 +49,12 @@ def setup_environment(debug: bool = False, config_file: Optional[str] = None):
         os.environ['CONFIG_FILE'] = config_file
 
 def display_banner():
-    """Display SakaiBot banner."""
+    """Display Aigram banner."""
     if not sys.stdout.isatty():
         return
     banner_text = """
 ╔═══════════════════════════════════════╗
-║            SakaiBot v2.0.0            ║
+║            Aigram v2.0.0            ║
 ║   Advanced Telegram Userbot with AI   ║
 ╚═══════════════════════════════════════╝
     """
@@ -91,11 +91,11 @@ def display_info(message: str):
 async def get_telegram_client():
     """Get initialized Telegram client.
     
-    If running inside SakaiBot (interactive menu), returns the shared client.
+    If running inside Aigram (interactive menu), returns the shared client.
     If running standalone, creates a new client connection.
     Returns (None, None) if bot is already running to prevent database lock.
     """
-    # First, check if we have a shared client (running inside SakaiBot)
+    # First, check if we have a shared client (running inside Aigram)
     shared_client, shared_manager = get_shared_client()
     if shared_client is not None:
         return shared_client, shared_manager
@@ -105,7 +105,7 @@ async def get_telegram_client():
     from src.telegram.client import TelegramClientManager
     
     # Check if bot is already running (only matters for standalone CLI)
-    lock_file = Path("data/.sakaibot.lock")
+    lock_file = Path("data/.aigram.lock")
     if lock_file.exists():
         try:
             pid = int(lock_file.read_text().strip())

@@ -1,24 +1,24 @@
 # =============================================================================
-# SakaiBot Docker Compose Configuration
+# Aigram Docker Compose Configuration
 # =============================================================================
 # Usage:
 #   Build:    docker compose build
 #   Start:    docker compose up -d
 #   Logs:     docker compose logs -f
 #   Stop:     docker compose down
-#   CLI:      docker compose run --rm sakaibot cli
+#   CLI:      docker compose run --rm aigram cli
 # =============================================================================
 
 services:
-  sakaibot:
+  aigram:
     build:
       context: .
       dockerfile: Dockerfile
       # NOTE: Do NOT add HTTP_PROXY/HTTPS_PROXY here.
       # Build requires direct internet access (no proxy).
       # Proxy is configured at runtime via iptables transparent proxy.
-    image: sakaibot:latest
-    container_name: sakaibot
+    image: aigram:latest
+    container_name: aigram
     network_mode: host
 
     # Restart policy: always restart unless explicitly stopped
@@ -31,9 +31,9 @@ services:
 
     # Environment variable overrides
     environment:
-      - SAKAIBOT_DOCKER=1
-      - SAKAIBOT_LOG_JSON=1
-      - SAKAIBOT_LOG_LEVEL=${SAKAIBOT_LOG_LEVEL:-INFO}
+      - AIGRAM_DOCKER=1
+      - AIGRAM_LOG_JSON=1
+      - AIGRAM_LOG_LEVEL=${AIGRAM_LOG_LEVEL:-INFO}
       - TZ=${TZ:-UTC}
 
     # Persistent volumes
@@ -46,9 +46,9 @@ services:
       # Logs - bind mount for easy host access
       - ./logs:/app/logs
       # Cache - named volume (can be recreated)
-      - sakaibot_cache:/app/cache
+      - aigram_cache:/app/cache
       # Temp files - named volume (ephemeral)
-      - sakaibot_temp:/app/temp
+      - aigram_temp:/app/temp
 
     # Resource constraints for 1GB VPS
     # Adjust based on your VPS specs
@@ -72,8 +72,8 @@ services:
 
     # Container labels
     labels:
-      - "com.sakaibot.service=main"
-      - "com.sakaibot.description=AI-powered Telegram Userbot"
+      - "com.aigram.service=main"
+      - "com.aigram.description=AI-powered Telegram Userbot"
 
     # Security options
     security_opt:
@@ -98,14 +98,14 @@ services:
 
 # Named volumes for data persistence
 volumes:
-  sakaibot_cache:
+  aigram_cache:
     driver: local
 
-  sakaibot_temp:
+  aigram_temp:
     driver: local
 # =============================================================================
 # Networks (optional - useful if adding more services later)
 # =============================================================================
 # networks:
-#   sakaibot_network:
+#   aigram_network:
 #     driver: bridge

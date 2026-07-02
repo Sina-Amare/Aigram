@@ -1,10 +1,10 @@
-"""Custom exceptions for SakaiBot."""
+"""Custom exceptions for Aigram."""
 
 from typing import Optional
 
 
-class SakaiBotError(Exception):
-    """Base exception for SakaiBot."""
+class AigramError(Exception):
+    """Base exception for Aigram."""
     
     def __init__(self, message: str, details: Optional[str] = None) -> None:
         self.message = message
@@ -17,26 +17,26 @@ class SakaiBotError(Exception):
         return self.message
 
 
-class ConfigurationError(SakaiBotError):
+class ConfigurationError(AigramError):
     """Raised when there are configuration-related issues."""
     pass
 
 
-class TelegramError(SakaiBotError):
+class TelegramError(AigramError):
     """Raised when there are Telegram API-related issues."""
     pass
 
 
-class AIProcessorError(SakaiBotError):
+class AIProcessorError(AigramError):
     """Raised when there are AI processing-related issues."""
     pass
 
 
-class CacheError(SakaiBotError):
+class CacheError(AigramError):
     """Raised when there are cache-related issues."""
     pass
 
 
-class ValidationError(SakaiBotError):
+class ValidationError(AigramError):
     """Raised when validation fails."""
     pass

@@ -1833,7 +1833,7 @@
       card.replaceChildren(
         head("All set 🎉"),
         el("p", { class: "muted", text: "Aigram is configured and you're logged in. Restart it with the normal command to open the full panel:" }),
-        el("code", { text: "sakaibot panel" }),
+        el("code", { text: "aigram panel" }),
       );
     }
     step1();

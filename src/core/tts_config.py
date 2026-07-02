@@ -1,4 +1,4 @@
-"""TTS Configuration for SakaiBot."""
+"""TTS Configuration for Aigram."""
 
 import os
 from typing import List, Optional

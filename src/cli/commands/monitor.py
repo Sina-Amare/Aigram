@@ -303,8 +303,8 @@ async def _show_monitoring_status():
         if not cli_state.can_start_monitoring:
             console.print("\n[yellow]Requirements to start monitoring:[/yellow]")
             if not cli_state.can_categorize:
-                console.print("  • Set target group: sakaibot group set")
-                console.print("  • Add command mappings: sakaibot group map --add")
+                console.print("  • Set target group: aigram group set")
+                console.print("  • Add command mappings: aigram group map --add")
             if not cli_state.can_use_ai:
                 console.print(f"  • Configure {config.llm_provider.title()} API key in .env")
         

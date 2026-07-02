@@ -136,7 +136,7 @@ async def handle_help_command(event: events.NewMessage.Event, args: str):
     try:
         if not args:
             # Main help message
-            msg = """🤖 <b>SakaiBot Help</b>
+            msg = """🤖 <b>Aigram Help</b>
 <i>Your AI-powered userbot assistant</i>
 
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -217,7 +217,7 @@ Transcribe + AI summary
 • 10 requests per 60 seconds
 • Max 10,000 messages for analyze
 
-<i>🔗 SakaiBot v2.0 • OpenRouter + Gemini</i>"""
+<i>🔗 Aigram v2.0 • OpenRouter + Gemini</i>"""
             await event.edit(msg, parse_mode='html')
         
         elif args == 'fa' or args == 'persian' or args == 'فارسی':
@@ -641,7 +641,7 @@ async def handle_status_command(event: events.NewMessage.Event, args: str = ""):
             except Exception:
                 group_info = str(target_group)
         
-        msg = f"""🤖 <b>SakaiBot Status</b>
+        msg = f"""🤖 <b>Aigram Status</b>
 
 ━━━━━━━━━━━━━━━━━━━━━━
 

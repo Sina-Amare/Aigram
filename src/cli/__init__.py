@@ -1,4 +1,4 @@
-"""Modern CLI implementation for SakaiBot."""
+"""Modern CLI implementation for Aigram."""
 
 from .main import cli
 

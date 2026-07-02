@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# SakaiBot Docker Entrypoint
+# Aigram Docker Entrypoint
 # =============================================================================
 # This script runs when the container starts. It validates configuration,
 # checks for required files, and starts the appropriate mode.
@@ -18,7 +18,7 @@ NC='\033[0m' # No Color
 # Banner
 echo -e "${BLUE}"
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                       SakaiBot                               ║"
+echo "║                       Aigram                               ║"
 echo "║           AI-Powered Telegram Userbot                        ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -144,7 +144,7 @@ if [ -z "$SESSION_FILE" ]; then
     log_warn "First-time authentication will be required."
     log_warn ""
     log_warn "If you need to authenticate interactively, run:"
-    log_warn "  docker compose run --rm sakaibot cli"
+    log_warn "  docker compose run --rm aigram cli"
     log_warn ""
     
     # If trying to start monitor without session, warn but continue
@@ -163,10 +163,10 @@ fi
 echo ""
 log_info "=== Startup Configuration ==="
 log_info "Mode:        ${1:-monitor}"
-log_info "Log Level:   ${SAKAIBOT_LOG_LEVEL:-INFO}"
-log_info "Log Format:  ${SAKAIBOT_LOG_JSON:-0} (1=JSON)"
+log_info "Log Level:   ${AIGRAM_LOG_LEVEL:-INFO}"
+log_info "Log Format:  ${AIGRAM_LOG_JSON:-0} (1=JSON)"
 log_info "Timezone:    ${TZ:-UTC}"
-log_info "Docker Mode: ${SAKAIBOT_DOCKER:-0}"
+log_info "Docker Mode: ${AIGRAM_DOCKER:-0}"
 echo ""
 
 # -----------------------------------------------------------------------------

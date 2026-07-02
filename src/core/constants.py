@@ -1,9 +1,9 @@
-"""Constants used throughout SakaiBot."""
+"""Constants used throughout Aigram."""
 
 from typing import Final
 
 # Application Constants
-APP_NAME: Final[str] = "SakaiBot"
+APP_NAME: Final[str] = "Aigram"
 APP_VERSION: Final[str] = "2.0.0"
 APP_DESCRIPTION: Final[str] = "Modern Telegram Userbot with AI Capabilities"
 
@@ -19,7 +19,7 @@ DEFAULT_PV_FETCH_LIMIT_INITIAL: Final[int] = 400
 
 # Configuration Constants
 CONFIG_FILE_NAME: Final[str] = "data/config.ini"
-SETTINGS_FILE_NAME: Final[str] = "data/sakaibot_user_settings.json"
+SETTINGS_FILE_NAME: Final[str] = "data/aigram_user_settings.json"
 DEFAULT_MAX_ANALYZE_MESSAGES: Final[int] = 10000
 
 # AI Constants
@@ -65,8 +65,8 @@ MONITOR_LOG_FILE: Final[str] = "logs/monitor_activity.log"
 
 # HTTP Headers for OpenRouter
 OPENROUTER_HEADERS: Final[dict[str, str]] = {
-    "HTTP-Referer": "http://localhost/sakaibot",
-    "X-Title": "SakaiBot"
+    "HTTP-Referer": "http://localhost/aigram",
+    "X-Title": "Aigram"
 }
 
 # Image Generation Constants

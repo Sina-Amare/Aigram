@@ -1,4 +1,4 @@
-"""AI processing modules for SakaiBot."""
+"""AI processing modules for Aigram."""
 
 from .processor import AIProcessor
 from .stt import SpeechToTextProcessor

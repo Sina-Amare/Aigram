@@ -2,7 +2,7 @@
 (code / 2FA) in-panel, collect + write LLM keys to .env — all without a
 terminal. Mirrors the proven terminal auth in TelegramClientManager._authenticate.
 
-Used by ``sakaibot setup``. In a normal (already-authorized) ``sakaibot panel``
+Used by ``aigram setup``. In a normal (already-authorized) ``aigram panel``
 run, ``status().needs_setup`` is False and the wizard never appears.
 """
 
@@ -49,7 +49,7 @@ class OnboardingService:
         if not phone.startswith("+"):
             raise PanelError("Phone must include the country code, e.g. +98...")
 
-        session_name = os.environ.get("TELEGRAM_SESSION_NAME", "sakaibot_session")
+        session_name = os.environ.get("TELEGRAM_SESSION_NAME", "aigram_session")
         Path("data").mkdir(parents=True, exist_ok=True)
         session_path = str(Path("data") / session_name)
 
@@ -128,7 +128,7 @@ class OnboardingService:
             updates[f"{prefix}_API_KEY_{i}"] = key.strip()
 
         self.state.env_writer.set_many(updates)
-        # Release the session so a subsequent `sakaibot panel` can open it.
+        # Release the session so a subsequent `aigram panel` can open it.
         try:
             if self._client is not None:
                 await self._client.disconnect()

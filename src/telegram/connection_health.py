@@ -1,4 +1,4 @@
-"""Connection health monitoring with auto-recovery for SakaiBot.
+"""Connection health monitoring with auto-recovery for Aigram.
 
 Provides:
 - Periodic heartbeat checks (every 120 seconds)

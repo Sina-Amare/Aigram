@@ -1,4 +1,4 @@
-"""Speech-to-Text processing for SakaiBot."""
+"""Speech-to-Text processing for Aigram."""
 
 import asyncio
 import os

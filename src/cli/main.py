@@ -1,4 +1,4 @@
-"""Main CLI entry point for SakaiBot."""
+"""Main CLI entry point for Aigram."""
 
 import click
 import asyncio
@@ -26,9 +26,9 @@ console = Console()
 @click.pass_context
 def cli(ctx, debug, config_file):
     """
-    SakaiBot - Advanced Telegram Userbot
+    Aigram - Advanced Telegram Userbot
     
-    Use 'sakaibot COMMAND --help' for more information on a command.
+    Use 'aigram COMMAND --help' for more information on a command.
     """
     ctx.ensure_object(dict)
     ctx.obj['DEBUG'] = debug
@@ -75,7 +75,7 @@ def show_status():
         settings = settings_manager.load_user_settings()
         
         # Create status table
-        table = Table(title="SakaiBot Status", show_header=True, header_style="bold cyan")
+        table = Table(title="Aigram Status", show_header=True, header_style="bold cyan")
         table.add_column("Component", style="cyan", width=20)
         table.add_column("Status", width=30)
         table.add_column("Details", style="dim")
@@ -148,10 +148,10 @@ def show_status():
         
         # Show quick commands
         console.print("\n[bold cyan]Quick Commands:[/bold cyan]")
-        console.print("  • sakaibot monitor start    - Start monitoring")
-        console.print("  • sakaibot group set        - Set target group")
-        console.print("  • sakaibot group set        - Set target group")
-        console.print("  • sakaibot --help           - Show all commands")
+        console.print("  • aigram monitor start    - Start monitoring")
+        console.print("  • aigram group set        - Set target group")
+        console.print("  • aigram group set        - Set target group")
+        console.print("  • aigram --help           - Show all commands")
         
     except Exception as e:
         console.print(f"[red]Error loading status: {e}[/red]")

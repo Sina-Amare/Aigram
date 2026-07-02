@@ -27,8 +27,8 @@ pytestmark = [
     pytest.mark.live,
     pytest.mark.asyncio,
     pytest.mark.skipif(
-        os.getenv("SAKAIBOT_RUN_LIVE_TESTS") != "1",
-        reason="Live Gemini debug tests require SAKAIBOT_RUN_LIVE_TESTS=1 and API credentials",
+        os.getenv("AIGRAM_RUN_LIVE_TESTS") != "1",
+        reason="Live Gemini debug tests require AIGRAM_RUN_LIVE_TESTS=1 and API credentials",
     ),
 ]
 

@@ -1,4 +1,4 @@
-# SakaiBot Secrets Directory
+# Aigram Secrets Directory
 
 > ⚠️ **SECURITY WARNING**: This directory contains sensitive credentials.
 > Never commit contents of this directory to git!
@@ -28,10 +28,10 @@ cp .env secrets/.env.production
 cp data/*.session secrets/
 
 # 2. Create encrypted archive
-tar -czf - secrets/ | gpg --symmetric --cipher-algo AES256 > sakaibot-secrets.tar.gz.gpg
+tar -czf - secrets/ | gpg --symmetric --cipher-algo AES256 > aigram-secrets.tar.gz.gpg
 
 # 3. Transfer to VPS
-scp sakaibot-secrets.tar.gz.gpg user@your-vps:/home/user/
+scp aigram-secrets.tar.gz.gpg user@your-vps:/home/user/
 
 # 4. Clean up local secrets
 rm -rf secrets/*
@@ -39,7 +39,7 @@ rm -rf secrets/*
 # On your VPS:
 
 # 1. Decrypt
-gpg --decrypt sakaibot-secrets.tar.gz.gpg | tar -xzf -
+gpg --decrypt aigram-secrets.tar.gz.gpg | tar -xzf -
 
 # 2. Move to correct locations
 mv secrets/.env.production .env
@@ -49,7 +49,7 @@ mv secrets/*.session data/
 chmod 600 .env data/*.session
 
 # 4. Clean up
-rm sakaibot-secrets.tar.gz.gpg
+rm aigram-secrets.tar.gz.gpg
 rm -rf secrets/
 ```
 
@@ -57,8 +57,8 @@ rm -rf secrets/
 
 ```bash
 # Only if using SSH key authentication (no password prompt)
-scp -i ~/.ssh/vps_key .env user@your-vps:/path/to/sakaibot/.env
-scp -i ~/.ssh/vps_key data/*.session user@your-vps:/path/to/sakaibot/data/
+scp -i ~/.ssh/vps_key .env user@your-vps:/path/to/aigram/.env
+scp -i ~/.ssh/vps_key data/*.session user@your-vps:/path/to/aigram/data/
 ```
 
 ## Required Credentials

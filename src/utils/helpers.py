@@ -1,4 +1,4 @@
-"""Helper utilities for SakaiBot."""
+"""Helper utilities for Aigram."""
 
 import re
 from pathlib import Path

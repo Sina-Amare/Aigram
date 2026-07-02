@@ -1,4 +1,4 @@
-"""CLI handler for SakaiBot that integrates InteractiveMenu with Telegram client."""
+"""CLI handler for Aigram that integrates InteractiveMenu with Telegram client."""
 
 from telethon import TelegramClient
 

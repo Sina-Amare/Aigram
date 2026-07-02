@@ -78,7 +78,7 @@ class PanelConfig:
     # --no-real-photos to fall back to colored initials (zero photo RPCs).
     real_photos: bool = True
     # When False, the panel runs as a pure private console (no Telegram event
-    # handlers). When True (default for `sakaibot panel`), the bot also stays
+    # handlers). When True (default for `aigram panel`), the bot also stays
     # live in chats.
     with_monitoring: bool = True
     # TLS material. A non-loopback (LAN) bind is ONLY permitted when both are

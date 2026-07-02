@@ -1,5 +1,5 @@
 """
-Telegram message templates for SakaiBot.
+Telegram message templates for Aigram.
 
 All messages use Telegram HTML formatting and are in English.
 Analysis content language is determined by the language flag.

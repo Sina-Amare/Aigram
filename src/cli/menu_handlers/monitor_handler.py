@@ -35,7 +35,7 @@ class MonitorMenuHandler:
             
             if is_active:
                 console.print("[yellow]Monitoring is currently active.[/yellow]")
-                console.print("[red]Note: Stop monitoring from command line with 'sakaibot monitor stop'[/red]")
+                console.print("[red]Note: Stop monitoring from command line with 'aigram monitor stop'[/red]")
                 console.print("[dim]The interactive menu cannot stop an already running monitor process.[/dim]")
             else:
                 console.print("[yellow]Starting monitoring...[/yellow]")

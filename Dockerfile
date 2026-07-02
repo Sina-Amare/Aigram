@@ -1,8 +1,8 @@
 # =============================================================================
-# SakaiBot Production Docker Image
+# Aigram Production Docker Image
 # Multi-stage build for minimal image size and security
 # =============================================================================
-# Build: docker build -t sakaibot:latest .
+# Build: docker build -t aigram:latest .
 # Run:   docker compose up -d
 # =============================================================================
 
@@ -45,21 +45,21 @@ RUN pip install --user --no-warn-script-location .
 FROM python:3.11-slim-bookworm AS runtime
 
 # Image metadata
-LABEL org.opencontainers.image.title="SakaiBot" \
+LABEL org.opencontainers.image.title="Aigram" \
       org.opencontainers.image.description="AI-powered Telegram Userbot with multi-LLM support" \
       org.opencontainers.image.vendor="Sina-Amare" \
-      org.opencontainers.image.source="https://github.com/Sina-Amare/SakaiBot" \
+      org.opencontainers.image.source="https://github.com/Sina-Amare/Aigram" \
       org.opencontainers.image.licenses="MIT"
 
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app \
-    PATH="/home/sakaibot/.local/bin:$PATH" \
+    PATH="/home/aigram/.local/bin:$PATH" \
     # Docker-specific settings
-    SAKAIBOT_DOCKER=1 \
-    SAKAIBOT_LOG_JSON=1 \
-    SAKAIBOT_LOG_LEVEL=INFO \
+    AIGRAM_DOCKER=1 \
+    AIGRAM_LOG_JSON=1 \
+    AIGRAM_LOG_LEVEL=INFO \
     # Timezone
     TZ=UTC
 
@@ -78,32 +78,32 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get autoremove -y
 
 # Create non-root user for security
-RUN groupadd --gid 1000 sakaibot \
-    && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash sakaibot
+RUN groupadd --gid 1000 aigram \
+    && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash aigram
 
 # Create application directories with proper permissions
 RUN mkdir -p /app/data /app/logs /app/cache /app/temp \
-    && chown -R sakaibot:sakaibot /app
+    && chown -R aigram:aigram /app
 
 # Copy installed Python packages from builder stage
-COPY --from=builder /root/.local /home/sakaibot/.local
+COPY --from=builder /root/.local /home/aigram/.local
 
 # Set working directory
 WORKDIR /app
 
 # Copy application code with correct ownership
-COPY --chown=sakaibot:sakaibot src/ ./src/
-COPY --chown=sakaibot:sakaibot pyproject.toml setup.py ./
+COPY --chown=aigram:aigram src/ ./src/
+COPY --chown=aigram:aigram pyproject.toml setup.py ./
 
 # Copy Docker-specific scripts
-COPY --chown=sakaibot:sakaibot docker/entrypoint.sh /entrypoint.sh
-COPY --chown=sakaibot:sakaibot docker/healthcheck.sh /healthcheck.sh
+COPY --chown=aigram:aigram docker/entrypoint.sh /entrypoint.sh
+COPY --chown=aigram:aigram docker/healthcheck.sh /healthcheck.sh
 
 # Make scripts executable
 RUN chmod +x /entrypoint.sh /healthcheck.sh
 
 # Switch to non-root user
-USER sakaibot
+USER aigram
 
 # Declare volumes for persistent data
 VOLUME ["/app/data", "/app/logs", "/app/cache"]

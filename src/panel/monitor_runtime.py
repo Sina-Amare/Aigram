@@ -1,7 +1,7 @@
 """Keep the Telegram bot live while the panel runs.
 
 This registers the same monitoring event handlers as
-``src/cli/commands/monitor.py`` so that running ``sakaibot panel`` also keeps
+``src/cli/commands/monitor.py`` so that running ``aigram panel`` also keeps
 the bot responding to chat commands. It is intentionally the ONLY place in the
 panel package that touches ``add_event_handler`` (the no-send static guard
 excludes this file) — these are the existing bot's handlers, not the web layer.

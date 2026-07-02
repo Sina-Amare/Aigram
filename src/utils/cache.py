@@ -1,4 +1,4 @@
-"""Cache management for SakaiBot."""
+"""Cache management for Aigram."""
 
 import json
 from datetime import datetime, timezone

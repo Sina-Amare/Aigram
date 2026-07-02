@@ -1,4 +1,4 @@
-"""Text-to-Speech processing for SakaiBot."""
+"""Text-to-Speech processing for Aigram."""
 
 from __future__ import annotations
 

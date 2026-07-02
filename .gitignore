@@ -67,7 +67,7 @@ cache/
 data/
 !data/.gitkeep
 user_settings.json
-sakaibot_user_settings.json
+aigram_user_settings.json
 *_cache.json
 pv_cache.json
 group_cache.json

@@ -1,4 +1,4 @@
-"""Utility modules for SakaiBot."""
+"""Utility modules for Aigram."""
 
 from .cache import CacheManager
 from .logging import setup_logging, get_logger, set_correlation_id, get_correlation_id

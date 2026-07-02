@@ -1,4 +1,4 @@
-"""Command service: runs the 7 SakaiBot commands and RETURNS the result for the
+"""Command service: runs the 7 Aigram commands and RETURNS the result for the
 panel to render. It calls the existing AI core (which returns values) and the
 media generators. It NEVER sends/edits/forwards anything to Telegram.
 

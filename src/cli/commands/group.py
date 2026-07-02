@@ -86,7 +86,7 @@ async def _set_target_group(identifier: Optional[str], clear: bool):
         groups, _ = cache_manager.load_group_cache()
         
         if not groups:
-            display_error("No group cache found. Run 'sakaibot group list --refresh' first.")
+            display_error("No group cache found. Run 'aigram group list --refresh' first.")
             return
         
         selected_group = None
@@ -125,7 +125,7 @@ async def _set_target_group(identifier: Optional[str], clear: bool):
         display_success(f"Target group set to: {selected_group['title']} ({group_type})")
         
         if selected_group.get('is_forum'):
-            display_info("This is a forum group. Use 'sakaibot group map' to map commands to topics.")
+            display_info("This is a forum group. Use 'aigram group map' to map commands to topics.")
         
     except Exception as e:
         display_error(f"Failed to set target group: {e}")
@@ -143,7 +143,7 @@ async def _list_topics():
         
         group_id = settings.get('selected_target_group')
         if not group_id:
-            display_error("No target group set. Use 'sakaibot group set' first.")
+            display_error("No target group set. Use 'aigram group set' first.")
             return
         
         # Get group details
@@ -241,7 +241,7 @@ async def _manage_mappings(action: str):
 
         group_id = settings.get('selected_target_group')
         if not group_id and action not in ['list']:
-            display_error("No target group set. Use 'sakaibot group set' first.")
+            display_error("No target group set. Use 'aigram group set' first.")
             return
 
         if action == 'list':

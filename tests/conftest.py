@@ -1,4 +1,4 @@
-"""Shared test fixtures for SakaiBot."""
+"""Shared test fixtures for Aigram."""
 
 import pytest
 from unittest.mock import Mock, AsyncMock, MagicMock

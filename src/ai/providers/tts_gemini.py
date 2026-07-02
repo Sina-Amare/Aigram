@@ -1,4 +1,4 @@
-"""Gemini TTS Provider for SakaiBot.
+"""Gemini TTS Provider for Aigram.
 
 Uses the official Google Gemini TTS API pattern from:
 https://ai.google.dev/gemini-api/docs/speech-generation

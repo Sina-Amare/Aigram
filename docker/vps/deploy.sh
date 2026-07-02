@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# deploy.sh - One-command SakaiBot deployment
+# deploy.sh - One-command Aigram deployment
 # =============================================================================
 # This script handles the entire deployment process:
 # 1. Prepares network for Docker build (disables proxy)
@@ -15,23 +15,23 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SAKAIBOT_DIR="/root/SakaiBot"
+AIGRAM_DIR="/root/Aigram"
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════╗"
-echo "║              SakaiBot VPS Deployment                     ║"
+echo "║              Aigram VPS Deployment                     ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
 
-# Check if SakaiBot directory exists
-if [ ! -d "$SAKAIBOT_DIR" ]; then
-    echo "ERROR: SakaiBot directory not found at $SAKAIBOT_DIR"
+# Check if Aigram directory exists
+if [ ! -d "$AIGRAM_DIR" ]; then
+    echo "ERROR: Aigram directory not found at $AIGRAM_DIR"
     echo "Please clone the repository first:"
-    echo "  git clone https://github.com/Sina-Amare/SakaiBot.git $SAKAIBOT_DIR"
+    echo "  git clone https://github.com/Sina-Amare/Aigram.git $AIGRAM_DIR"
     exit 1
 fi
 
-cd "$SAKAIBOT_DIR"
+cd "$AIGRAM_DIR"
 
 # Step 1: Prepare network for build
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -71,7 +71,7 @@ fi
 # Step 5: Start the bot
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Step 5/5: Starting SakaiBot..."
+echo "Step 5/5: Starting Aigram..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 docker compose down 2>/dev/null || true
 docker compose up -d

@@ -1,4 +1,4 @@
-"""Centralized logging configuration for SakaiBot."""
+"""Centralized logging configuration for Aigram."""
 
 import logging
 import sys

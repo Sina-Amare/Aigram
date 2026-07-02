@@ -1,4 +1,4 @@
-"""Telegram client management for SakaiBot."""
+"""Telegram client management for Aigram."""
 
 import asyncio
 from typing import Optional

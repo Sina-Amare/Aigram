@@ -1,4 +1,4 @@
-"""Enhanced translation utilities for SakaiBot."""
+"""Enhanced translation utilities for Aigram."""
 
 import re
 from typing import Dict, List, Optional, Tuple

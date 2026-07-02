@@ -17,7 +17,7 @@ Telegram/Google are blocked (e.g. Iran).
 On a fresh box you don't need to edit `.env` by hand. Run the **setup wizard**:
 
 ```bash
-sakaibot setup            # or: python -m src.cli.main setup
+aigram setup            # or: python -m src.cli.main setup
 ```
 
 It prints a URL + token. Open it (locally, or through a tunnel — see below) and the
@@ -25,7 +25,7 @@ wizard walks you through: **Telegram API id/hash/phone → login code → 2FA (i
 LLM key**. It writes `.env` and logs you in. Then start the real panel:
 
 ```bash
-sakaibot panel            # premium dashboard + the bot stays live in chats
+aigram panel            # premium dashboard + the bot stays live in chats
 ```
 
 The panel prints `http://127.0.0.1:8765/?token=…` — open that to use Aigram. You can
@@ -54,7 +54,7 @@ sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile \
   && sudo mkswap /swapfile && sudo swapon /swapfile \
   && echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 docker compose up -d                                    # build + run
-docker compose exec sakaibot sakaibot setup             # run the wizard once
+docker compose exec aigram aigram setup             # run the wizard once
 ```
 
 **Docker, not Kubernetes:** for one user / one container, k8s is pure overhead (its
@@ -69,11 +69,11 @@ always-on machine with Docker works:
 ```bash
 git clone <your-fork> aigram && cd aigram
 docker compose up -d
-docker compose exec sakaibot sakaibot setup
+docker compose exec aigram aigram setup
 ```
 
 On Android, [Termux](https://termux.dev) runs Python directly (no Docker): install
-`python`, `ffmpeg`, `git`, then `pip install -e .` and `sakaibot setup`.
+`python`, `ffmpeg`, `git`, then `pip install -e .` and `aigram setup`.
 
 **From Iran:** a home server has an Iranian IP, so the userbot can't reach Telegram
 directly — route it through a proxy/VPN. Aigram ships proxy plumbing
@@ -92,9 +92,9 @@ over **HTTPS**:
   ```
   Open the printed `https://…trycloudflare.com/?token=…` on your phone → browser menu →
   **Add to Home Screen**. Works offline (service worker) and from Iran via a VPN.
-- **LAN + self-signed HTTPS** (home Wi-Fi): `sakaibot panel --expose-lan --tls-cert cert.pem --tls-key key.pem`
+- **LAN + self-signed HTTPS** (home Wi-Fi): `aigram panel --expose-lan --tls-cert cert.pem --tls-key key.pem`
   (generate a cert with `openssl`/`mkcert`). Trust it once on the phone, then install.
-- **LAN over HTTP**: `sakaibot panel --expose-lan` works as a basic shortcut but has
+- **LAN over HTTP**: `aigram panel --expose-lan` works as a basic shortcut but has
   **no** offline/service-worker (browsers require HTTPS for that).
 
 ### 4. Quick test — Railway

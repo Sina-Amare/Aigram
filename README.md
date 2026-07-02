@@ -19,8 +19,6 @@ Aigram signs into your personal Telegram account and puts a web interface in fro
 
 Everything runs on hardware you control. Your Telegram session and your API keys stay on your own machine; there is no hosted service in between. The panel installs as a Progressive Web App, so it behaves like a native app on a phone as well as in the browser.
 
-> Aigram started as a project called SakaiBot. The Python package, the `sakaibot` CLI, and the Docker service still use that name.
-
 ## Contents
 
 - [Screenshots](#screenshots)
@@ -171,8 +169,8 @@ You need Python 3.10 or newer, [FFmpeg](https://ffmpeg.org/download.html) for th
 git clone https://github.com/Sina-Amare/Aigram.git aigram
 cd aigram
 docker compose up -d
-docker compose exec sakaibot sakaibot setup    # Telegram login and LLM keys
-docker compose exec sakaibot sakaibot panel    # prints the panel URL
+docker compose exec aigram aigram setup    # Telegram login and LLM keys
+docker compose exec aigram aigram panel    # prints the panel URL
 ```
 
 ### Without Docker
@@ -181,11 +179,11 @@ docker compose exec sakaibot sakaibot panel    # prints the panel URL
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -e .
-sakaibot setup                  # first-run wizard: writes .env and logs you in
-sakaibot panel                  # starts the control panel
+aigram setup                  # first-run wizard: writes .env and logs you in
+aigram panel                  # starts the control panel
 ```
 
-The first run opens a setup wizard that collects your Telegram API id, hash, and phone number, handles the login code and two-factor step, and stores at least one LLM key. After that, `sakaibot panel` prints a URL of the form `http://127.0.0.1:8765/?token=…`. Open it, pick a chat, and you are in.
+The first run opens a setup wizard that collects your Telegram API id, hash, and phone number, handles the login code and two-factor step, and stores at least one LLM key. After that, `aigram panel` prints a URL of the form `http://127.0.0.1:8765/?token=…`. Open it, pick a chat, and you are in.
 
 ### Install it on your phone
 
@@ -287,7 +285,7 @@ pip install -e ".[dev]"
 ruff check .                              # lint
 pytest                                    # default suite (live tests are skipped)
 pytest tests/panel -q                     # panel and web tests
-SAKAIBOT_RUN_LIVE_TESTS=1 pytest -m live  # real Telegram and real LLM, needs credentials
+AIGRAM_RUN_LIVE_TESTS=1 pytest -m live  # real Telegram and real LLM, needs credentials
 ```
 
 The CI workflow (`quality.yml`) byte-compiles the source, runs the test suite, and runs Ruff on every push. The live end-to-end tests drive a real Chromium through Playwright; they send only to your own Saved Messages, never to a third party.

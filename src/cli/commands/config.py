@@ -24,7 +24,7 @@ def show(show_all):
         config = get_settings()
         
         # Create configuration table
-        table = Table(title="SakaiBot Configuration", show_header=True, header_style="bold cyan")
+        table = Table(title="Aigram Configuration", show_header=True, header_style="bold cyan")
         table.add_column("Category", style="cyan", width=20)
         table.add_column("Setting", style="green", width=25)
         table.add_column("Value", width=40)
@@ -72,7 +72,7 @@ def show(show_all):
         # Show file locations
         console.print("\n[bold cyan]Configuration Files:[/bold cyan]")
         console.print(f"  • Main config: {Path('.env').absolute()}")
-        console.print(f"  • User settings: {Path('data/sakaibot_user_settings.json').absolute()}")
+        console.print(f"  • User settings: {Path('data/aigram_user_settings.json').absolute()}")
         console.print(f"  • Session: {Path('data/' + config.telegram_session_name + '.session').absolute()}")
         
         if not show_all:
@@ -206,7 +206,7 @@ def example():
 TELEGRAM_API_ID=12345678
 TELEGRAM_API_HASH=your_api_hash_here
 TELEGRAM_PHONE_NUMBER=+1234567890
-TELEGRAM_SESSION_NAME=sakaibot_session
+TELEGRAM_SESSION_NAME=aigram_session
 
 # LLM Provider Configuration
 LLM_PROVIDER=gemini  # or openrouter

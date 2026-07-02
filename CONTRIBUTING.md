@@ -1,6 +1,6 @@
 # Contributing to Aigram
 
-Thank you for your interest in contributing to Aigram! This guide will help you get started. (The repository, Python package, and CLI are named `sakaibot`.)
+Thank you for your interest in contributing to Aigram! This guide will help you get started. (The repository, Python package, and CLI are named `aigram`.)
 
 ## Code of Conduct
 
@@ -30,7 +30,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 1. **Fork** the repository
 2. **Clone** your fork:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SakaiBot.git
+   git clone https://github.com/YOUR_USERNAME/Aigram.git
    ```
 3. **Create branch**:
    ```bash
@@ -55,7 +55,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 ```bash
 # Clone repository
 git clone https://github.com/Sina-Amare/Aigram.git
-cd SakaiBot
+cd Aigram
 
 # Create virtual environment
 python -m venv venv

@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# SakaiBot Docker Health Check
+# Aigram Docker Health Check
 # =============================================================================
 # This script is called by Docker's HEALTHCHECK instruction.
 # Returns 0 (healthy) or 1 (unhealthy).
@@ -8,7 +8,7 @@
 
 # Check if the main Python process is running
 if ! pgrep -f "python.*src" > /dev/null 2>&1; then
-    echo "UNHEALTHY: SakaiBot process not found"
+    echo "UNHEALTHY: Aigram process not found"
     exit 1
 fi
 
@@ -25,7 +25,7 @@ if [ ! -w "/app/logs" ]; then
 fi
 
 # Check log file activity (optional - don't fail if no recent activity)
-LOG_FILE="/app/logs/sakaibot.log"
+LOG_FILE="/app/logs/aigram.log"
 if [ -f "$LOG_FILE" ]; then
     # Check if log was updated in last 10 minutes
     LAST_MOD=$(stat -c %Y "$LOG_FILE" 2>/dev/null || echo 0)

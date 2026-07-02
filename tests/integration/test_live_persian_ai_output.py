@@ -3,7 +3,7 @@ r"""Live Persian output smoke tests against the configured AI provider.
 These tests intentionally call the real API, so they are opt-in only.
 Run on Windows:
 
-    $env:SAKAIBOT_RUN_LIVE_TESTS="1"
+    $env:AIGRAM_RUN_LIVE_TESTS="1"
     .\venv\Scripts\python.exe -m pytest -s -o addopts="" tests\integration\test_live_persian_ai_output.py
 """
 
@@ -26,8 +26,8 @@ load_dotenv()
 
 def _live_enabled() -> bool:
     return (
-        os.getenv("SAKAIBOT_RUN_LIVE_TESTS") == "1"
-        or os.getenv("SAKAIBOT_LIVE_AI_TESTS") == "1"
+        os.getenv("AIGRAM_RUN_LIVE_TESTS") == "1"
+        or os.getenv("AIGRAM_LIVE_AI_TESTS") == "1"
     )
 
 
@@ -37,7 +37,7 @@ pytestmark = [
     pytest.mark.asyncio,
     pytest.mark.skipif(
         not _live_enabled(),
-        reason="Set SAKAIBOT_RUN_LIVE_TESTS=1 to call the real AI API",
+        reason="Set AIGRAM_RUN_LIVE_TESTS=1 to call the real AI API",
     ),
 ]
 
@@ -45,16 +45,16 @@ pytestmark = [
 def _mock_persian_messages() -> list[dict]:
     base = datetime(2026, 6, 6, 12, 0, tzinfo=timezone.utc)
     rows = [
-        ("[redacted]", "من می‌گم ساعت ۸ بریم کافه، ولی لطفاً این دفعه کسی نیم ساعت دیر نیاد."),
+        ("آرش", "من می‌گم ساعت ۸ بریم کافه، ولی لطفاً این دفعه کسی نیم ساعت دیر نیاد."),
         ("مریم", "من میام، ولی اگه باز بحث انتخاب جا سه ساعت طول بکشه واقعاً تسلیم می‌شم."),
         ("علی", "من فقط گفتم شاید کافه قبلی بهتر بود، چرا همه فکر می‌کنن دارم مخالفت می‌کنم؟"),
         ("نرگس", "چون هر بار می‌گی فقط یه پیشنهاد دارم، بعد کل برنامه عوض می‌شه."),
-        ("[redacted]", "اوکی پس تصمیم نهایی: کافه رستا، ساعت ۸. این بار واقعاً نهایی."),
+        ("آرش", "اوکی پس تصمیم نهایی: کافه رستا، ساعت ۸. این بار واقعاً نهایی."),
         ("مریم", "عالیه. علی جان فقط لطفاً پنج دقیقه قبلش نگو یه جای بهتر پیدا کردی."),
         ("علی", "باشه بابا، قول می‌دم. ولی رستا پارکینگ داره؟"),
         ("نرگس", "دیدی؟ شروع شد."),
         ("مریم", "😂 همین الان احتمال تغییر برنامه رفت روی ۷۰ درصد."),
-        ("[redacted]", "نه دیگه. اگر تغییر بدیم من رسماً از گروه خداحافظی می‌کنم."),
+        ("آرش", "نه دیگه. اگر تغییر بدیم من رسماً از گروه خداحافظی می‌کنم."),
         ("علی", "باشه، رستا. منم میام. فقط یکی لوکیشن دقیق بفرسته."),
         ("نرگس", "فرستادم. لطفاً این یکی رو دیگه گم نکنید."),
     ]

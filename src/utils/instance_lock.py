@@ -16,11 +16,11 @@ class InstanceLock:
     Uses a PID lock file to detect and terminate existing instances.
     """
     
-    def __init__(self, lock_file: str = "data/.sakaibot.lock"):
+    def __init__(self, lock_file: str = "data/.aigram.lock"):
         """Initialize the instance lock.
         
         Args:
-            lock_file: Path to the lock file (default: data/.sakaibot.lock)
+            lock_file: Path to the lock file (default: data/.aigram.lock)
         """
         self.lock_file = Path(lock_file)
         self.current_pid = os.getpid()

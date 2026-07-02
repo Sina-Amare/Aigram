@@ -1,4 +1,4 @@
-"""CLI state management for SakaiBot."""
+"""CLI state management for Aigram."""
 
 from typing import Dict, Any, List, Optional, Tuple
 from src.core.config import Config

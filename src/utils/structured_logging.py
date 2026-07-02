@@ -169,7 +169,7 @@ class HumanReadableFormatter(logging.Formatter):
 def is_docker_environment() -> bool:
     """Detect if running inside a Docker container."""
     # Check for Docker-specific environment variable
-    if os.environ.get('SAKAIBOT_DOCKER', '').lower() in ('1', 'true', 'yes'):
+    if os.environ.get('AIGRAM_DOCKER', '').lower() in ('1', 'true', 'yes'):
         return True
 
     # Check for .dockerenv file
@@ -252,7 +252,7 @@ def setup_production_logging(
 
         # Still write to file for persistence
         file_handler = RotatingFileHandler(
-            log_path / "sakaibot.log",
+            log_path / "aigram.log",
             maxBytes=max_bytes,
             backupCount=backup_count,
             encoding='utf-8'
@@ -266,7 +266,7 @@ def setup_production_logging(
 
         # Main log file
         file_handler = RotatingFileHandler(
-            log_path / "sakaibot.log",
+            log_path / "aigram.log",
             maxBytes=max_bytes,
             backupCount=backup_count,
             encoding='utf-8'
@@ -277,7 +277,7 @@ def setup_production_logging(
 
         # Error-only log file
         error_handler = RotatingFileHandler(
-            log_path / "sakaibot.error.log",
+            log_path / "aigram.error.log",
             maxBytes=max_bytes,
             backupCount=backup_count,
             encoding='utf-8'

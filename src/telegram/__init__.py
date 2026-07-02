@@ -1,4 +1,4 @@
-"""Telegram-related modules for SakaiBot."""
+"""Telegram-related modules for Aigram."""
 
 from .client import TelegramClientManager
 from .utils import TelegramUtils

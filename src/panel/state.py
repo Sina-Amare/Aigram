@@ -1,6 +1,6 @@
 """PanelState: the dependency container shared across the web layer.
 
-Built once by ``sakaibot panel`` (or a test) and stored on ``app.state.panel``.
+Built once by ``aigram panel`` (or a test) and stored on ``app.state.panel``.
 Holds the SHARED Telegram client (never a new one), the existing AI core
 objects, and the panel-owned throttle / caches / services.
 """

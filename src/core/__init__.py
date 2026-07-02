@@ -1,4 +1,4 @@
-"""Core functionality and configuration for SakaiBot."""
+"""Core functionality and configuration for Aigram."""
 
 from .config import Config, get_settings, load_config
 from .constants import *
@@ -8,7 +8,7 @@ __all__ = [
     "Config",
     "get_settings",
     "load_config",
-    "SakaiBotError",
+    "AigramError",
     "ConfigurationError",
     "TelegramError",
     "AIProcessorError",

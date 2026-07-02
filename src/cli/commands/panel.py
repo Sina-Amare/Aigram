@@ -1,4 +1,4 @@
-"""`sakaibot panel` — launch the local web control panel.
+"""`aigram panel` — launch the local web control panel.
 
 Mirrors `monitor start`: it acquires the ONE shared Telegram client via
 `get_telegram_client()` (which refuses to start a second instance, protecting
@@ -217,4 +217,4 @@ async def _run_setup(port, host, tls_cert, tls_key):
         pass
     finally:
         await handle.stop()
-        display_info("Setup stopped. Run 'sakaibot panel' to launch the full panel.")
+        display_info("Setup stopped. Run 'aigram panel' to launch the full panel.")

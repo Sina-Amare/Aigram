@@ -1,4 +1,4 @@
-"""Telegram utility functions for SakaiBot."""
+"""Telegram utility functions for Aigram."""
 
 from typing import List, Dict, Any, Optional, Tuple
 
